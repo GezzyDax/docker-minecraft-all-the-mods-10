@@ -26,9 +26,48 @@
 
 ### Требования
 - Docker + Docker Compose
-- Git
 
-### Запуск
+### Вариант 1: готовый образ из GitHub Registry (рекомендуется)
+
+```bash
+# Скачать и запустить одной командой
+docker run -d \
+  -e EULA=true \
+  -e MAX_RAM=8G \
+  -e MIN_RAM=8G \
+  -v ./data:/data \
+  -p 25565:25565 \
+  --name atm10-archlight \
+  --restart unless-stopped \
+  ghcr.io/gezzydax/docker-minecraft-all-the-mods-10:latest
+```
+
+Или с `docker-compose.yml` — создай файл:
+
+```yaml
+services:
+  atm10:
+    image: ghcr.io/gezzydax/docker-minecraft-all-the-mods-10:latest
+    container_name: atm10-archlight
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./data:/data
+    environment:
+      EULA: "true"
+      MAX_RAM: "8G"
+      MIN_RAM: "8G"
+```
+
+```bash
+docker compose up -d
+docker compose logs -f
+```
+
+### Вариант 2: собрать из исходников (для разработки/изменений)
 
 ```bash
 # 1. Клонировать репозиторий
@@ -128,4 +167,5 @@ cp -r data/ backup-$(date +%Y%m%d)/
 - Оригинал: https://github.com/kryptonhydrit/docker-minecraft-all-the-mods-10
 - Arclight (форк): https://github.com/GezzyDax/Arclight
 - All the Mods 10: https://www.curseforge.com/minecraft/modpacks/all-the-mods-10
+
 
