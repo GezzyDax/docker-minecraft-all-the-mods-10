@@ -1,0 +1,32 @@
+services:
+  atm10:
+    build: .
+    container_name: atm10-archlight
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./data:/data
+    environment:
+      EULA: "true"
+      MAX_RAM: "8G"
+      MIN_RAM: "8G"
+      # Server settings
+      MOTD: "All the Mods 10 - Archlight"
+      DIFFICULTY: "easy"
+      MAX_PLAYERS: "20"
+      ONLINE_MODE: "true"
+      VIEW_DISTANCE: "10"
+      SIMULATION_DISTANCE: "10"
+      SPAWN_PROTECTION: "0"
+      # Uncomment to set ops/whitelist:
+      # OPS_LIST: "Player1,Player2"
+      # ALLOW_LIST: "Player1,Player2"
+      # WHITE_LIST: "true"
+      # ENFORCE_WHITELIST: "true"
+      # Uncomment to enable RCON:
+      # ENABLE_RCON: "true"
+      # RCON_PASSWORD: "changeme"
+      # RCON_PORT: "25575"
