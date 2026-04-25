@@ -11,7 +11,7 @@ NC="\033[0m"
 _SERVER_VERSION="6.6"
 _SERVER_DOWNLOAD_PATH="7892/979"
 _SERVER_FILES="ServerFiles-${_SERVER_VERSION}.zip"
-_ARCHLIGHT_URL="https://github.com/GezzyDax/Arclight/releases/download/neoforge1.21.1/arclight-neoforge-1.21.1-1.0.2-SNAPSHOT.jar"
+_ARCHLIGHT_URL="https://github.com/GezzyDax/Arclight/releases/download/neoforge1.21.1-21.1.228/arclight-neoforge-1.21.1-1.0.2-SNAPSHOT.jar"
 _ARCHLIGHT_JAR="arclight-neoforge-1.21.1-1.0.2-SNAPSHOT.jar"
 
 echo -e "${BLUE}> [DEBUG] ATM10 - Server version: ${_SERVER_VERSION} (Archlight)${NC}"
