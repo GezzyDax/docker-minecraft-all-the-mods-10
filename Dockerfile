@@ -5,7 +5,8 @@ LABEL maintainer="kryptonhydrit <kryptonhydrit@kryptonhydrit.de>"
 ENV SERVER_CONFIG_AUTO_MODE=true
 
 RUN apt-get update -y && \
-    apt-get install libarchive-tools -y
+    apt-get install -y libarchive-tools curl && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY --chmod=755 servermanager.sh /servermanager.sh
 COPY --chmod=755 includes/ /includes
